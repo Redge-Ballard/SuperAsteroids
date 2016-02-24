@@ -15,7 +15,7 @@ import edu.byu.cs.superasteroids.model.Asteroid;
 import edu.byu.cs.superasteroids.model.BgObject;
 import edu.byu.cs.superasteroids.model.Level;
 import edu.byu.cs.superasteroids.model.LevelAsteroid;
-import edu.byu.cs.superasteroids.model.LevelBgObject;
+import edu.byu.cs.superasteroids.model.LevelBackGroundObject;
 import edu.byu.cs.superasteroids.model.ShipBody;
 import edu.byu.cs.superasteroids.model.ShipCannon;
 import edu.byu.cs.superasteroids.model.ShipCore;
@@ -45,7 +45,8 @@ public class GameDataImporter implements IGameDataImporter{
         scan.close();
         try {
             JSONObject json = new JSONObject(input.toString());
-            loadJsonData(json);
+            JSONObject data = json.getJSONObject("asteroidsGame");
+            loadJsonData(data);
             return true;
         } catch (JSONException e) {
             e.printStackTrace();
@@ -99,7 +100,7 @@ public class GameDataImporter implements IGameDataImporter{
         LevelDao bgObj = new LevelDao(db);
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
-            LevelBgObject[] bgObjects = loadLevelObjects(j,j.getInt("number"));
+            LevelBackGroundObject[] bgObjects = loadLevelObjects(j,j.getInt("number"));
             LevelAsteroid[] asteroids = loadLevelAsteroids(j,j.getInt("number"));
             Level newObj = new Level();
             newObj.setNumber(j.getInt("number"));
@@ -114,15 +115,15 @@ public class GameDataImporter implements IGameDataImporter{
         }
     }
 
-    public LevelBgObject[] loadLevelObjects(JSONObject object, int level) throws JSONException {
+    public LevelBackGroundObject[] loadLevelObjects(JSONObject object, int level) throws JSONException {
         LevelBgObjectDao bgObjects = new LevelBgObjectDao(db);
         JSONArray json = object.getJSONArray("levelObjects");
-        LevelBgObject[] bgArray = new LevelBgObject[json.length()];
+        LevelBackGroundObject[] bgArray = new LevelBackGroundObject[json.length()];
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
             int posX = coordinatesFromJson(j.getString("position" ), "x" );
             int posY = coordinatesFromJson(j.getString("position" ), "y" );
-            LevelBgObject newObj = new LevelBgObject();
+            LevelBackGroundObject newObj = new LevelBackGroundObject();
             newObj.setPositionX(posX);
             newObj.setPositionY(posY);
             newObj.setBgObjectId(j.getInt("objectId"));
@@ -194,7 +195,7 @@ public class GameDataImporter implements IGameDataImporter{
             newObj.setImageAttWidth(j.getInt("attackImageWidth"));
             newObj.setImageAttHeight(j.getInt("attackImageHeight"));
             newObj.setSoundPath(j.getString("attackSound"));
-            newObj.setDamage(j.getInt("damge"));
+            newObj.setDamage(j.getInt("damage"));
             bgObj.insert(newObj);
         }
     }

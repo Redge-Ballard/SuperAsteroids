@@ -11,7 +11,7 @@ public class Level extends DataObject {
     private int width;
     private int height;
     private String musicPath;
-    private LevelBgObject[] levelObjects;
+    private LevelBackGroundObject[] levelObjects;
     private LevelAsteroid[] levelAsteroids;
 
     public int getNumber() {
@@ -62,11 +62,11 @@ public class Level extends DataObject {
         this.musicPath = musicPath;
     }
 
-    public LevelBgObject[] getLevelObjects() {
+    public LevelBackGroundObject[] getLevelObjects() {
         return levelObjects;
     }
 
-    public void setLevelObjects(LevelBgObject[] levelObjects) {
+    public void setLevelObjects(LevelBackGroundObject[] levelObjects) {
         this.levelObjects = levelObjects;
     }
 

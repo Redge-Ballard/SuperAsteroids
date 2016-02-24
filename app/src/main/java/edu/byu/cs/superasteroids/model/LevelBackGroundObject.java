@@ -4,7 +4,7 @@ package edu.byu.cs.superasteroids.model;
  *
 
  */
-public class LevelBgObject extends DataObject {
+public class LevelBackGroundObject extends DataObject {
 
     private int positionX;
     private int positionY;

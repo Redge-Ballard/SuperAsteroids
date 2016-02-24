@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import java.util.HashSet;
 import java.util.Set;
 
-import edu.byu.cs.superasteroids.model.LevelBgObject;
+import edu.byu.cs.superasteroids.model.LevelBackGroundObject;
 
 /** DAO to access BG Objects from the DB
  *
@@ -24,17 +24,17 @@ public class LevelBgObjectDao {
      *
      * @return Array of all BG objects in the DB
      */
-    public Set<LevelBgObject> getAll(){
+    public Set<LevelBackGroundObject> getAll(){
         final String SQL = "select id, positionX, positionY, BgObjectId, scale, levelId" +
                 "from LevelBgObjects";
 
-        Set<LevelBgObject> result = new HashSet<>();
+        Set<LevelBackGroundObject> result = new HashSet<>();
 
         Cursor cursor = db.rawQuery(SQL, new String[]{});
         try {
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
-                LevelBgObject bg = new LevelBgObject();
+                LevelBackGroundObject bg = new LevelBackGroundObject();
 
                 bg.setId(cursor.getInt(0));
                 bg.setPositionX(cursor.getInt(1));
@@ -58,7 +58,7 @@ public class LevelBgObjectDao {
      *
      *  @param bg LevelBgObject to add
      */
-    public boolean insert(LevelBgObject bg){
+    public boolean insert(LevelBackGroundObject bg){
         ContentValues values = new ContentValues();
         values.put("positionX", bg.getPositionX());
         values.put("positionY", bg.getPositionY());
