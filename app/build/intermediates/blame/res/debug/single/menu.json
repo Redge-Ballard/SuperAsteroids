@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/res/merged/debug/menu/menu_import.xml",
+        "source": "/Users/Azulius/Downloads/SuperAsteroids/app/src/main/res/menu/menu_import.xml"
+    },
+    {
+        "merged": "/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/Azulius/Downloads/SuperAsteroids/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/res/merged/debug/menu/menu_main.xml",
+        "source": "/Users/Azulius/Downloads/SuperAsteroids/app/src/main/res/menu/menu_main.xml"
+    }
+]

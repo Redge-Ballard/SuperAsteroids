@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Azulius/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/19.1.0/support-v4-19.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0_5c8035392ded94cf86cd1c21e3963fa9eecd8a6c.jar" />
+    </item>
+    <item
+        jar="/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/19.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-19.1.0_9bb58a7201cc9eb8131520e56df0e567c7afb1b0.jar" />
+    </item>
+    <item
+        jar="/Users/Azulius/Downloads/SuperAsteroids/app/libs/json-simple-1.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5">
+        <dex dex="/Users/Azulius/Downloads/SuperAsteroids/app/build/intermediates/pre-dexed/debug/json-simple-1.1.1_c9ff6abc833eb95268f26575a456733f13d6f873.jar" />
+    </item>
+
+</items>
