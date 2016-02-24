@@ -4,17 +4,10 @@ package edu.byu.cs.superasteroids.model;
  *
 
  */
-public class ShipCore {
+public class ShipCore extends ShipPart{
 
     private int cannonBoost;
     private int engineBoost;
-    private String imagePath;
-
-    public ShipCore(int cannonBoost, int engineBoost, String imagePath){
-        this.cannonBoost = cannonBoost;
-        this.engineBoost = engineBoost;
-        this.imagePath = imagePath;
-    }
 
     /** Updates the object's position and stats
      *
@@ -26,14 +19,6 @@ public class ShipCore {
      *
      */
     public void draw(){
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
     }
 
     public int getCannonBoost() {

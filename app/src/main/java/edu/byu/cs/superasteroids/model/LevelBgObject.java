@@ -4,7 +4,7 @@ package edu.byu.cs.superasteroids.model;
  *
 
  */
-public class LevelBgObject extends SuperObject {
+public class LevelBgObject extends DataObject {
 
     private int positionX;
     private int positionY;
@@ -13,9 +13,6 @@ public class LevelBgObject extends SuperObject {
     private double scale;
     private int levelId;
 
-    public LevelBgObject (){
-
-    }
     /** Updates the object's position and stats
      *
      */

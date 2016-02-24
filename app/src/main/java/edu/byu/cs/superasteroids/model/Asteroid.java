@@ -3,7 +3,7 @@ package edu.byu.cs.superasteroids.model;
 /** Asteroid runtime class
  *
  */
-public class Asteroid extends MovingObject {
+public class Asteroid extends ImageObject {
 
     /** Represents which type of asteroid */
     private String type;

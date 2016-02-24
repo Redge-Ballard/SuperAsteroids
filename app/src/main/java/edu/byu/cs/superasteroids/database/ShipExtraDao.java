@@ -53,38 +53,6 @@ public class ShipExtraDao {
         return result;
     }
 
-    /** Gets a single ShipExtra from the DB
-     *
-     * @param id ID for the desired ShipExtra object
-     * @return Single ShipExtra object
-     */
-    public ShipExtra getById(Integer id){
-        final String SQL = "select id, attachPointX, attachPointY, imagePath, imageWidth, imageHeight" +
-                "from ShipExtras" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                ShipExtra extra = new ShipExtra();
-
-                extra.setId(cursor.getInt(0));
-                extra.setAttachX(cursor.getInt(1));
-                extra.setAttachY(cursor.getInt(2));
-                extra.setImagePath(cursor.getString(3));
-                extra.setImageWidth(cursor.getInt(4));
-                extra.setImageHeight(cursor.getInt(5));
-
-                return extra;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an ShipExtra into the DB
      *
      *  @param extra ShipExtra to add
@@ -105,5 +73,13 @@ public class ShipExtraDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all ShipExtra from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from ShipExtras";
+        db.execSQL(SQL);
     }
 }

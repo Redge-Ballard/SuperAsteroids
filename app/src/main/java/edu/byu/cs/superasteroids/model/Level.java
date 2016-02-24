@@ -3,7 +3,7 @@ package edu.byu.cs.superasteroids.model;
 /**
  * Created by Azulius on 2/18/16.
  */
-public class Level extends SuperObject{
+public class Level extends DataObject {
 
     private int number;
     private String title;
@@ -13,17 +13,6 @@ public class Level extends SuperObject{
     private String musicPath;
     private LevelBgObject[] levelObjects;
     private LevelAsteroid[] levelAsteroids;
-
-    public Level(int number, String title, String hint, int width, int height, String musicPath, LevelBgObject[] objects, LevelAsteroid[] asteroids){
-        this.number = number;
-        this.title = title;
-        this.hint = hint;
-        this.width = width;
-        this.height = height;
-        this.musicPath = musicPath;
-        this.levelObjects = objects;
-        this.levelAsteroids = asteroids;
-    }
 
     public int getNumber() {
         return number;
@@ -71,5 +60,21 @@ public class Level extends SuperObject{
 
     public void setMusicPath(String musicPath) {
         this.musicPath = musicPath;
+    }
+
+    public LevelBgObject[] getLevelObjects() {
+        return levelObjects;
+    }
+
+    public void setLevelObjects(LevelBgObject[] levelObjects) {
+        this.levelObjects = levelObjects;
+    }
+
+    public LevelAsteroid[] getLevelAsteroids() {
+        return levelAsteroids;
+    }
+
+    public void setLevelAsteroids(LevelAsteroid[] levelAsteroids) {
+        this.levelAsteroids = levelAsteroids;
     }
 }

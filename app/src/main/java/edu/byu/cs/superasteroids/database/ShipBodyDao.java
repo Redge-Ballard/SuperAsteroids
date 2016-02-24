@@ -9,7 +9,7 @@ import java.util.Set;
 
 import edu.byu.cs.superasteroids.model.ShipBody;
 
-/** DAO to access Ship Body Objects from the DB
+/** DAO to access ShipBody Objects from the DB
  *
  */
 public class ShipBodyDao {
@@ -56,41 +56,6 @@ public class ShipBodyDao {
         return result;
     }
 
-    /** Gets a single ShipBody from the DB
-     *
-     * @param id ID for the desired ShipBody object
-     * @return Single ShipBody object
-     */
-    public ShipBody getById(Integer id){
-        final String SQL = "select id, cannonAttachX, cannonAttachY, engineAttachX, engineAttachY," +
-                "imagePath, imageWidth, imageHeight" +
-                "from ShipBodies" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                ShipBody body = new ShipBody();
-
-                body.setId(cursor.getInt(0));
-                body.setCannonAttachX(cursor.getInt(1));
-                body.setCannonAttachY(cursor.getInt(2));
-                body.setEngineAttachX(cursor.getInt(3));
-                body.setEngineAttachY(cursor.getInt(4));
-                body.setImagePath(cursor.getString(5));
-                body.setImageWidth(cursor.getInt(6));
-                body.setImageHeight(cursor.getInt(7));
-
-                return body;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an ShipBody into the DB
      *
      *  @param body ShipBody to add
@@ -113,5 +78,13 @@ public class ShipBodyDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all ShipBodies from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from ShipBodies";
+        db.execSQL(SQL);
     }
 }

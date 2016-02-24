@@ -77,7 +77,11 @@ public class GameDataImporter implements IGameDataImporter{
         AsteroidDao asteroids = new AsteroidDao(db);
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
-            Asteroid newObj = new Asteroid(j.getString("image"), j.getInt("imageWidth"), j.getInt("imageHeight"), j.getString("type"));
+            Asteroid newObj = new Asteroid();
+            newObj.setImagePath(j.getString("image"));
+            newObj.setImageWidth(j.getInt("imageWidth"));
+            newObj.setImageHeight(j.getInt("imageHeight"));
+            newObj.setType(j.getString("type"));
             asteroids.insert(newObj);
         }
     }
@@ -85,7 +89,8 @@ public class GameDataImporter implements IGameDataImporter{
     public void loadBgObjects(JSONArray json) throws JSONException {
         BgObjectDao bgObj = new BgObjectDao(db);
         for (int i = 0; i < json.length(); i++){
-            BgObject newObj = new BgObject(json.getString(i));
+            BgObject newObj = new BgObject();
+            newObj.setImagePath(json.getString(i));
             bgObj.insert(newObj);
         }
     }
@@ -96,7 +101,15 @@ public class GameDataImporter implements IGameDataImporter{
             JSONObject j = json.getJSONObject(i);
             LevelBgObject[] bgObjects = loadLevelObjects(j,j.getInt("number"));
             LevelAsteroid[] asteroids = loadLevelAsteroids(j,j.getInt("number"));
-            Level newObj = new Level(j.getInt("number" ),j.getString("title"),j.getString("hint"),j.getInt("width"),j.getInt("height"),j.getString("music"), bgObjects, asteroids); //get other arrays
+            Level newObj = new Level();
+            newObj.setNumber(j.getInt("number"));
+            newObj.setTitle(j.getString("title"));
+            newObj.setHint(j.getString("hint"));
+            newObj.setWidth(j.getInt("width"));
+            newObj.setHeight(j.getInt("height"));
+            newObj.setMusicPath(j.getString("music"));
+            newObj.setLevelObjects(bgObjects);
+            newObj.setLevelAsteroids(asteroids);
             bgObj.insert(newObj);
         }
     }
@@ -109,7 +122,12 @@ public class GameDataImporter implements IGameDataImporter{
             JSONObject j = json.getJSONObject(i);
             int posX = coordinatesFromJson(j.getString("position" ), "x" );
             int posY = coordinatesFromJson(j.getString("position" ), "y" );
-            LevelBgObject newObj = new LevelBgObject(posX, posY, j.getInt("objectId"), j.getDouble("scale" ), level);
+            LevelBgObject newObj = new LevelBgObject();
+            newObj.setPositionX(posX);
+            newObj.setPositionY(posY);
+            newObj.setBgObjectId(j.getInt("objectId"));
+            newObj.setScale(j.getDouble("scale"));
+            newObj.setLevelId(level);
             bgObjects.insert(newObj);
             bgArray[i] = newObj;
         }
@@ -122,7 +140,10 @@ public class GameDataImporter implements IGameDataImporter{
         LevelAsteroid[] asteroidArray = new LevelAsteroid[json.length()];
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
-            LevelAsteroid newObj = new LevelAsteroid(j.getInt("number"), j.getInt("asteroidId" ), level);
+            LevelAsteroid newObj = new LevelAsteroid();
+            newObj.setNumber(j.getInt("number"));
+            newObj.setAsteroidType(j.getInt("asteroidId"));
+            newObj.setLevelId(level);
             asteroids.insert(newObj);
             asteroidArray[i] = newObj;
         }
@@ -139,7 +160,16 @@ public class GameDataImporter implements IGameDataImporter{
             int engineY = coordinatesFromJson(j.getString("engineAttach"),"y");
             int extraX = coordinatesFromJson(j.getString("extraAttach"),"x");
             int extraY = coordinatesFromJson(j.getString("extraAttach"),"y");
-            ShipBody newObj = new ShipBody(cannonX, cannonY, engineX, engineY, extraX, extraY, j.getString("image"),j.getInt("imageWidth"),j.getInt("imageHeight"));
+            ShipBody newObj = new ShipBody();
+            newObj.setCannonAttachX(cannonX);
+            newObj.setEngineAttachY(cannonY);
+            newObj.setEngineAttachX(engineX);
+            newObj.setEngineAttachY(engineY);
+            newObj.setExtraAttachX(extraX);
+            newObj.setExtraAttachY(extraY);
+            newObj.setImagePath(j.getString("image"));
+            newObj.setImageWidth(j.getInt("imageWidth"));
+            newObj.setImageHeight(j.getInt("imageHeight"));
             bgObj.insert(newObj);
         }
     }
@@ -152,7 +182,19 @@ public class GameDataImporter implements IGameDataImporter{
             int attachY = coordinatesFromJson(j.getString("attachPoint" ), "y" );
             int emitX = coordinatesFromJson(j.getString("emitPoint"), "x");
             int emitY = coordinatesFromJson(j.getString("emitPoint"),"y");
-            ShipCannon newObj = new ShipCannon(attachX, attachY, emitX, emitY, j.getString("image"),j.getInt("imageWidth"),j.getInt("imageHeight"),j.getString("attackImage"),j.getInt("attackImageWidth"),j.getInt("attackImageHeight"),j.getString("attackSound"),j.getInt("damage"));
+            ShipCannon newObj = new ShipCannon();
+            newObj.setAttachX(attachX);
+            newObj.setAttachY(attachY);
+            newObj.setEmitX(emitX);
+            newObj.setEmitY(emitY);
+            newObj.setImagePath(j.getString("image"));
+            newObj.setImageWidth(j.getInt("imageWidth"));
+            newObj.setImageHeight(j.getInt("imageHeight"));
+            newObj.setImageAttPath(j.getString("attackImage"));
+            newObj.setImageAttWidth(j.getInt("attackImageWidth"));
+            newObj.setImageAttHeight(j.getInt("attackImageHeight"));
+            newObj.setSoundPath(j.getString("attackSound"));
+            newObj.setDamage(j.getInt("damge"));
             bgObj.insert(newObj);
         }
     }
@@ -163,7 +205,12 @@ public class GameDataImporter implements IGameDataImporter{
             JSONObject j = json.getJSONObject(i);
             int attachX = coordinatesFromJson(j.getString("attachPoint"), "x");
             int attachY = coordinatesFromJson(j.getString("attachPoint" ), "y" );
-            ShipExtra newObj = new ShipExtra(attachX, attachY, j.getString("image"),j.getInt("imageWidth"),j.getInt("imageHeight"));
+            ShipExtra newObj = new ShipExtra();
+            newObj.setAttachX(attachX);
+            newObj.setAttachY(attachY);
+            newObj.setImagePath(j.getString("image"));
+            newObj.setImageWidth(j.getInt("imageWidth"));
+            newObj.setImageHeight(j.getInt("imageHeight"));
             bgObj.insert(newObj);
         }
     }
@@ -174,7 +221,14 @@ public class GameDataImporter implements IGameDataImporter{
             JSONObject j = json.getJSONObject(i);
             int attachX = coordinatesFromJson(j.getString("attachPoint"), "x");
             int attachY = coordinatesFromJson(j.getString("attachPoint" ), "y" );
-            ShipEngine newObj = new ShipEngine(j.getInt("baseSpeed"),j.getInt("baseTurnRate"), attachX, attachY,j.getString("image"),j.getInt("imageWidth"),j.getInt("imageHeight"));
+            ShipEngine newObj = new ShipEngine();
+            newObj.setSpeed(j.getInt("baseSpeed"));
+            newObj.setTurnRate(j.getInt("baseTurnRate"));
+            newObj.setAttachX(attachX);
+            newObj.setAttachY(attachY);
+            newObj.setImagePath(j.getString("image"));
+            newObj.setImageWidth(j.getInt("imageWidth"));
+            newObj.setImageHeight(j.getInt("imageHeight"));
             bgObj.insert(newObj);
         }
     }
@@ -183,7 +237,10 @@ public class GameDataImporter implements IGameDataImporter{
         ShipCoreDao bgObj = new ShipCoreDao(db);
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
-            ShipCore newObj = new ShipCore(j.getInt("cannonBoost"),j.getInt("engineBoost"),j.getString("image"));
+            ShipCore newObj = new ShipCore();
+            newObj.setCannonBoost(j.getInt("cannonBoost"));
+            newObj.setEngineBoost(j.getInt("engineBoost"));
+            newObj.setImagePath(j.getString("image"));
             bgObj.insert(newObj);
         }
     }

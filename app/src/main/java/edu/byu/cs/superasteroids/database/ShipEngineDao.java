@@ -56,41 +56,6 @@ public class ShipEngineDao {
         return result;
     }
 
-    /** Gets a single ShipEngine from the DB
-     *
-     * @param id ID for the desired ShipEngine object
-     * @return Single ShipEngine object
-     */
-    public ShipEngine getById(Integer id){
-        final String SQL = "select id, speed, turnRate, attachPointX, attachPointY, imagePath" +
-                "imageWidth, imageHeight" +
-                "from ShipEngines" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                ShipEngine engine = new ShipEngine();
-
-                engine.setId(cursor.getInt(0));
-                engine.setSpeed(cursor.getInt(1));
-                engine.setTurnRate(cursor.getInt(2));
-                engine.setAttachX(cursor.getInt(3));
-                engine.setAttachY(cursor.getInt(4));
-                engine.setImagePath(cursor.getString(5));
-                engine.setImageWidth(cursor.getInt(6));
-                engine.setImageHeight(cursor.getInt(7));
-
-                return engine;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an ShipEngine into the DB
      *
      *  @param engine ShipEngine to add
@@ -113,5 +78,13 @@ public class ShipEngineDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all ShipEngines from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from ShipEngines";
+        db.execSQL(SQL);
     }
 }

@@ -54,41 +54,9 @@ public class LevelBgObjectDao {
         return result;
     }
 
-    /** Gets a single BgObject from the DB
+    /** Inserts a LevelBgObject into the DB
      *
-     * @param id ID for the desired BgObject object
-     * @return Single BgObject object
-     */
-    public LevelBgObject getById(Integer id){
-        final String SQL = "select id, positionX, positionY, BgObjectId, scale, levelId" +
-                "from LevelBgObjects" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                LevelBgObject bg = new LevelBgObject();
-
-                bg.setId(cursor.getInt(0));
-                bg.setPositionX(cursor.getInt(1));
-                bg.setPositionY(cursor.getInt(2));
-                bg.setBgObjectId(cursor.getInt(3));
-                bg.setScale(cursor.getDouble(4));
-                bg.setLevelId(cursor.getInt(5));
-
-                return bg;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
-    /** Inserts an BgObject into the DB
-     *
-     *  @param bg BgObject to add
+     *  @param bg LevelBgObject to add
      */
     public boolean insert(LevelBgObject bg){
         ContentValues values = new ContentValues();
@@ -106,5 +74,13 @@ public class LevelBgObjectDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all LevelBgObjects from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from LevelBgObjects";
+        db.execSQL(SQL);
     }
 }

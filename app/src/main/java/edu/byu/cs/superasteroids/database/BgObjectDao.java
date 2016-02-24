@@ -67,4 +67,12 @@ public class BgObjectDao {
             return false;
         }
     }
+
+    /** Clears all BgObjects from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from BgObjects";
+        db.execSQL(SQL);
+    }
 }

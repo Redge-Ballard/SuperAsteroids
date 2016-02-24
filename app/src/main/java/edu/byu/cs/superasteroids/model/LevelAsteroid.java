@@ -3,16 +3,22 @@ package edu.byu.cs.superasteroids.model;
 /**
  * Created by Azulius on 2/18/16.
  */
-public class LevelAsteroid extends SuperObject {
+public class LevelAsteroid extends DataObject {
 
     private int number;
     private int asteroidType;
     private int levelId;
 
-    public LevelAsteroid(int number, int asteroidType, int level){
-        this.number = number;
-        this.asteroidType = asteroidType;
-        this.levelId = level;
+    /** Updates the object's position and stats
+     *
+     */
+    public void update(){
+    }
+
+    /** Draws the object on the screen
+     *
+     */
+    public void draw(){
     }
 
     public int getNumber() {

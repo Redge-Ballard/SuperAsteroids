@@ -61,46 +61,6 @@ public class ShipCannonDao {
         return result;
     }
 
-    /** Gets a single ShipCannon from the DB
-     *
-     * @param id ID for the desired ShipCannon object
-     * @return Single ShipCannon object
-     */
-    public ShipCannon getById(Integer id){
-        final String SQL = "select id, attachPointX, attachPointY, emitPointX, emitPointY, imagePath" +
-                "imageWidth, imageHeight, imageAttPath, imageAttWidth, imageAttHeight, soundPath, damage" +
-                "from ShipCannons" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                ShipCannon cannon = new ShipCannon();
-
-                cannon.setId(cursor.getInt(0));
-                cannon.setAttachX(cursor.getInt(1));
-                cannon.setAttachY(cursor.getInt(2));
-                cannon.setEmitX(cursor.getInt(3));
-                cannon.setEmitY(cursor.getInt(4));
-                cannon.setImagePath(cursor.getString(5));
-                cannon.setImageWidth(cursor.getInt(6));
-                cannon.setImageHeight(cursor.getInt(7));
-                cannon.setImageAttPath(cursor.getString(8));
-                cannon.setImageAttWidth(cursor.getInt(9));
-                cannon.setImageAttHeight(cursor.getInt(10));
-                cannon.setSoundPath(cursor.getString(11));
-                cannon.setDamage(cursor.getInt(12));
-
-                return cannon;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an ShipCannon into the DB
      *
      *  @param cannon ShipCannon to add
@@ -128,5 +88,13 @@ public class ShipCannonDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all ShipCannons from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from ShipCannons";
+        db.execSQL(SQL);
     }
 }

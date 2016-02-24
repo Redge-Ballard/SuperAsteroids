@@ -3,11 +3,11 @@ package edu.byu.cs.superasteroids.model;
 /**
  * Created by Azulius on 2/23/16.
  */
-public class VisibleObject extends SuperObject {
+public class ImageObject extends DataObject {
 
     private String imagePath;
-    private int imageWidth;
     private int imageHeight;
+    private int imageWidth;
 
     public String getImagePath() {
         return imagePath;
@@ -17,19 +17,19 @@ public class VisibleObject extends SuperObject {
         this.imagePath = imagePath;
     }
 
-    public int getImageWidth() {
-        return imageWidth;
-    }
-
-    public void setImageWidth(int imageWidth) {
-        this.imageWidth = imageWidth;
-    }
-
     public int getImageHeight() {
         return imageHeight;
     }
 
     public void setImageHeight(int imageHeight) {
         this.imageHeight = imageHeight;
+    }
+
+    public int getImageWidth() {
+        return imageWidth;
+    }
+
+    public void setImageWidth(int imageWidth) {
+        this.imageWidth = imageWidth;
     }
 }

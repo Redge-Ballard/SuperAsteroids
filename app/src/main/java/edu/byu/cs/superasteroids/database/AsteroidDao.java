@@ -74,4 +74,12 @@ public class AsteroidDao {
             return false;
         }
     }
+
+    /** Clears all asteroids from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from Asteroids";
+        db.execSQL(SQL);
+    }
 }

@@ -4,7 +4,7 @@ package edu.byu.cs.superasteroids.model;
  *
 
  */
-public class ShipBody {
+public class ShipBody extends ShipPart {
 
     private int cannonAttachX;
     private int cannonAttachY;
@@ -12,22 +12,6 @@ public class ShipBody {
     private int engineAttachY;
     private int extraAttachX;
     private int extraAttachY;
-    private String imagePath;
-    private int imageWidth;
-    private int imageHeight;
-
-    public ShipBody(int cannonX, int cannonY, int engineX, int engineY, int extraX, int extraY, String path, int width, int height){
-
-        this.cannonAttachX = cannonX;
-        this.cannonAttachY = cannonY;
-        this.engineAttachX = engineX;
-        this.engineAttachY = engineY;
-        this.extraAttachX = extraX;
-        this.engineAttachY = extraY;
-        this.imagePath = path;
-        this.imageWidth = width;
-        this.imageHeight = height;
-    }
 
     /** Updates the object's position and stats
      *
@@ -39,30 +23,6 @@ public class ShipBody {
      *
      */
     public void draw(){
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public int getImageWidth() {
-        return imageWidth;
-    }
-
-    public void setImageWidth(int imageWidth) {
-        this.imageWidth = imageWidth;
-    }
-
-    public int getImageHeight() {
-        return imageHeight;
-    }
-
-    public void setImageHeight(int imageHeight) {
-        this.imageHeight = imageHeight;
     }
 
     public int getCannonAttachX() {
@@ -95,5 +55,21 @@ public class ShipBody {
 
     public void setEngineAttachY(int engineAttachY) {
         this.engineAttachY = engineAttachY;
+    }
+
+    public int getExtraAttachX() {
+        return extraAttachX;
+    }
+
+    public void setExtraAttachX(int extraAttachX) {
+        this.extraAttachX = extraAttachX;
+    }
+
+    public int getExtraAttachY() {
+        return extraAttachY;
+    }
+
+    public void setExtraAttachY(int extraAttachY) {
+        this.extraAttachY = extraAttachY;
     }
 }

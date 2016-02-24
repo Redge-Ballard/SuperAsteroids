@@ -51,36 +51,6 @@ public class ShipCoreDao {
         return result;
     }
 
-    /** Gets a single ShipCore from the DB
-     *
-     * @param id ID for the desired ShipCore object
-     * @return Single ShipCore object
-     */
-    public ShipCore getById(Integer id){
-        final String SQL = "select id, cannonBoost, engineBoost, imagePath" +
-                "from ShipCores" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                ShipCore core = new ShipCore();
-
-                core.setId(cursor.getInt(0));
-                core.setCannonBoost(cursor.getInt(1));
-                core.setEngineBoost(cursor.getInt(2));
-                core.setImagePath(cursor.getString(3));
-
-                return core;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an ShipCore into the DB
      *
      *  @param core ShipCore to add
@@ -99,5 +69,13 @@ public class ShipCoreDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all ShipCores from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from ShipCores";
+        db.execSQL(SQL);
     }
 }

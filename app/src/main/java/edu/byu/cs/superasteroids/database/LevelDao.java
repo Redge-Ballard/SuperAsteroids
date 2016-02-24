@@ -53,38 +53,6 @@ public class LevelDao {
         return result;
     }
 
-    /** Gets a single Level from the DB
-     *
-     * @param id ID for the desired Level object
-     * @return Single Level object
-     */
-    public Level getById(Integer id){
-        final String SQL = "select id, title, hint, width, height, musicPath" +
-                "from Levels" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                Level level = new Level();
-
-                level.setId(cursor.getInt(0));
-                level.setTitle(cursor.getString(1));
-                level.setHint(cursor.getString(2));
-                level.setWidth(cursor.getInt(3));
-                level.setHeight(cursor.getInt(4));
-                level.setMusicPath(cursor.getString(5));
-
-                return level;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an Level into the DB
      *
      *  @param level Level to add
@@ -105,5 +73,13 @@ public class LevelDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all Levels from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from Levels";
+        db.execSQL(SQL);
     }
 }

@@ -52,36 +52,6 @@ public class LevelAsteroidDao {
         return result;
     }
 
-    /** Gets a single BgObject from the DB
-     *
-     * @param id ID for the desired BgObject object
-     * @return Single BgObject object
-     */
-    public LevelAsteroid getById(Integer id){
-        final String SQL = "select id, number, asteroidType, levelId" +
-                "from LevelAsteroids" +
-                "where id = ?";
-
-        Cursor cursor = db.rawQuery(SQL, new String[]{(id.toString())});
-        try {
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                LevelAsteroid roid = new LevelAsteroid();
-
-                roid.setId(cursor.getInt(0));
-                roid.setNumber(cursor.getInt(1));
-                roid.setAsteroidType(cursor.getInt(2));
-                roid.setLevelId(cursor.getInt(3));
-
-                return roid;
-            }
-        }
-        finally {
-            cursor.close();
-        }
-        return null; //Should this throw some exception if not found?
-    }
-
     /** Inserts an BgObject into the DB
      *
      *  @param roid BgObject to add
@@ -100,5 +70,13 @@ public class LevelAsteroidDao {
         else {
             return false;
         }
+    }
+
+    /** Clears all LevelAsteroids from the DB
+     *
+     */
+    public void clearAll(){
+        final String SQL = "delete from LevelAsteroids";
+        db.execSQL(SQL);
     }
 }
