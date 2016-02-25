@@ -24,7 +24,7 @@ public class ShipExtraDao {
      * @return Array of all ShipExtra objects in the DB
      */
     public Set<ShipExtra> getAll(){
-        final String SQL = "select id, attachPointX, attachPointY, imagePath, imageWidth, imageHeight" +
+        final String SQL = "select id, attachPointX, attachPointY, imagePath, imageWidth, imageHeight " +
                 "from ShipExtras";
 
         Set<ShipExtra> result = new HashSet<>();

@@ -24,7 +24,7 @@ public class ShipCoreDao {
      * @return Array of all ShipCore objects in the DB
      */
     public Set<ShipCore> getAll(){
-        final String SQL = "select id, cannonBoost, engineBoost, imagePath" +
+        final String SQL = "select id, cannonBoost, engineBoost, imagePath " +
                 "from ShipCores";
 
         Set<ShipCore> result = new HashSet<>();

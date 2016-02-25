@@ -24,8 +24,8 @@ public class ShipCannonDao {
      * @return Array of all ShipCannon objects in the DB
      */
     public Set<ShipCannon> getAll(){
-        final String SQL = "select id, attachPointX, attachPointY, emitPointX, emitPointY, imagePath" +
-                "imageWidth, imageHeight, imageAttPath, imageAttWidth, imageAttHeight, soundPath, damage" +
+        final String SQL = "select id, attachPointX, attachPointY, emitPointX, emitPointY, imagePath, " +
+                "imageWidth, imageHeight, imageAttPath, imageAttWidth, imageAttHeight, soundPath, damage " +
                 "from ShipCannons";
 
         Set<ShipCannon> result = new HashSet<>();

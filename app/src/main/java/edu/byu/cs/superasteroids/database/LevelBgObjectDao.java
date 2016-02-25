@@ -25,7 +25,7 @@ public class LevelBgObjectDao {
      * @return Array of all BG objects in the DB
      */
     public Set<LevelBackGroundObject> getAll(){
-        final String SQL = "select id, positionX, positionY, BgObjectId, scale, levelId" +
+        final String SQL = "select id, positionX, positionY, BgObjectId, scale, levelId " +
                 "from LevelBgObjects";
 
         Set<LevelBackGroundObject> result = new HashSet<>();

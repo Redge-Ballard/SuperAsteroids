@@ -29,9 +29,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "create table BgObjects" +
             "(" +
             "ID integer primary key autoincrement," +
-            "imagePath varchar(255) not null," +
-            "levelId integer not null," +
-            "foreign key (levelId) references Levels(ID)" +
+            "imagePath varchar(255) not null" +
             ");";
         final String LevelSQL =
             "create table Levels" +

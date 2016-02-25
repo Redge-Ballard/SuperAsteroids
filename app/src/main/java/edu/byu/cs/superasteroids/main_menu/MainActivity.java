@@ -14,6 +14,7 @@ import edu.byu.cs.superasteroids.base.ActionBarActivityView;
 import edu.byu.cs.superasteroids.content.ContentManager;
 import edu.byu.cs.superasteroids.game.GameActivity;
 import edu.byu.cs.superasteroids.importer.ImportActivity;
+import edu.byu.cs.superasteroids.model.AsteroidsGame;
 import edu.byu.cs.superasteroids.ship_builder.ShipBuildingActivity;
 
 public class MainActivity extends ActionBarActivityView implements IMainMenuView {
@@ -30,12 +31,13 @@ public class MainActivity extends ActionBarActivityView implements IMainMenuView
 
         //TODO: Set this activity's controller to an instance of your MainMenuController
         //TODO: Pass the MainMenuController's constructor a reference to its IMainMenuView (this)
-        IMainMenuController controller = new MainMenuController(this);
-        setController(controller);
+        //IMainMenuController controller = new MainMenuController(this);
+        //setController(controller);
 
 
         //TODO: Initialize your database
- 
+        AsteroidsGame roidGame = new AsteroidsGame(this);
+        roidGame.loadModels();
 
         ContentManager.getInstance().setResources(getResources());
 

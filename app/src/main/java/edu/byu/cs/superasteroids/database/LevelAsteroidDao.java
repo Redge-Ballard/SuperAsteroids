@@ -25,7 +25,7 @@ public class LevelAsteroidDao {
      * @return Array of all BG objects in the DB
      */
     public Set<LevelAsteroid> getAll(){
-        final String SQL = "select id, number, asteroidType, levelId" +
+        final String SQL = "select id, number, asteroidType, levelId " +
                 "from LevelAsteroids";
 
         Set<LevelAsteroid> result = new HashSet<>();

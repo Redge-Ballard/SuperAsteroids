@@ -24,8 +24,8 @@ public class ShipEngineDao {
      * @return Array of all ShipEngine objects in the DB
      */
     public Set<ShipEngine> getAll(){
-        final String SQL = "select id, speed, turnRate, attachPointX, attachPointY, imagePath" +
-                "imageWidth, imageHeight" +
+        final String SQL = "select id, speed, turnRate, attachPointX, attachPointY, imagePath, " +
+                "imageWidth, imageHeight " +
                 "from ShipEngines";
 
         Set<ShipEngine> result = new HashSet<>();

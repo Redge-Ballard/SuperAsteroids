@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.byu.cs.superasteroids.R;
-import edu.byu.cs.superasteroids.database.GameDataImporter;
 
 public class ImportActivity extends ActionBarActivity {
 

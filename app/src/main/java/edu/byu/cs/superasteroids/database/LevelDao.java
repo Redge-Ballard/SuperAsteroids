@@ -24,7 +24,7 @@ public class LevelDao {
      * @return Array of all Level objects in the DB
      */
     public Set<Level> getAll(){
-        final String SQL = "select id, title, hint, width, height, musicPath" +
+        final String SQL = "select id, title, hint, width, height, musicPath " +
                 "from Levels";
 
         Set<Level> result = new HashSet<>();

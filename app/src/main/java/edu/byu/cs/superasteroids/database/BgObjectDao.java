@@ -25,7 +25,7 @@ public class BgObjectDao {
      * @return Array of all BgObject objects in the DB
      */
     public Set<BgObject> getAll(){
-        final String SQL = "select id, imagePath" +
+        final String SQL = "select id, imagePath " +
                 "from BgObjects";
 
         Set<BgObject> result = new HashSet<>();
