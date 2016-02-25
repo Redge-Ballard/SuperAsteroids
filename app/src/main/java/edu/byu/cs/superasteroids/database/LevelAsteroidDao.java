@@ -62,7 +62,7 @@ public class LevelAsteroidDao {
         values.put("asteroidType", roid.getAsteroidType());
         values.put("levelId", roid.getLevelId());
 
-        long id = db.insert("BgObjects", null, values);
+        long id = db.insert("LevelAsteroids", null, values);
         if (id >= 0) {
             roid.setId(((int) id));
             return true;

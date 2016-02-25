@@ -66,7 +66,7 @@ public class LevelBgObjectDao {
         values.put("scale", bg.getScale());
         values.put("levelId", bg.getLevelId());
 
-        long id = db.insert("BgObjects", null, values);
+        long id = db.insert("LevelBgObjects", null, values);
         if (id >= 0) {
             bg.setId(((int) id));
             return true;

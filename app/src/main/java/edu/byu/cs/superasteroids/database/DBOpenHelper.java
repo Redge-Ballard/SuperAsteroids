@@ -29,7 +29,9 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "create table BgObjects" +
             "(" +
             "ID integer primary key autoincrement," +
-            "imagePath varchar(255) not null" +
+            "imagePath varchar(255) not null," +
+            "levelId integer not null," +
+            "foreign key (levelId) references Levels(ID)" +
             ");";
         final String LevelSQL =
             "create table Levels" +
@@ -37,7 +39,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "ID integer primary key autoincrement," +
             "number integer not null," +
             "title varchar(255) not null," +
-            "hinteger varchar(255) not null," +
+            "hint varchar(255) not null," +
             "width integer not null," +
             "height integer not null," +
             "musicPath varchar(255) not null" +
@@ -54,7 +56,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "foreign key (levelId) references Levels(ID)" +
             ");";
         final String LevelRoidSQL =
-            "create table LevelAsteroid" +
+            "create table LevelAsteroids" +
             "(" +
             "ID integer primary key autoincrement," +
             "number integer not null," +
@@ -78,10 +80,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "create table ShipCannons" +
             "(" +
             "ID integer primary key autoincrement," +
-            "attachPointegerX integer not null," +
-            "attachPointegerY integer not null," +
-            "emitPointegerX integer not null," +
-            "emitPointegerY integer not null," +
+            "attachPointX integer not null," +
+            "attachPointY integer not null," +
+            "emitPointX integer not null," +
+            "emitPointY integer not null," +
             "imagePath varchar(255) not null," +
             "imageWidth integer not null," +
             "imageHeight integer not null," +
@@ -95,8 +97,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "create table ShipExtras" +
             "(" +
             "ID integer primary key autoincrement," +
-            "attachPointegerX integer not null," +
-            "attachPointegerY integer not null," +
+            "attachPointX integer not null," +
+            "attachPointY integer not null," +
             "imagePath varchar(255) not null," +
             "imageWidth integer not null," +
             "imageHeight integer not null" +
@@ -107,8 +109,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "ID integer primary key autoincrement," +
             "speed integer not null," +
             "turnRate integer not null," +
-            "attachPointegerX integer not null," +
-            "attachPointegerY integer not null," +
+            "attachPointX integer not null," +
+            "attachPointY integer not null," +
             "imagePath varchar(255) not null," +
             "imageWidth integer not null," +
             "imageHeight integer not null" +

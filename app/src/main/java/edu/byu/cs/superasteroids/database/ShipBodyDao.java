@@ -63,7 +63,7 @@ public class ShipBodyDao {
     public boolean insert(ShipBody body){
         ContentValues values = new ContentValues();
         values.put("cannonAttachX", body.getCannonAttachX());
-        values.put("cannonAtachY", body.getCannonAttachY());
+        values.put("cannonAttachY", body.getCannonAttachY());
         values.put("engineAttachX", body.getEngineAttachX());
         values.put("engineAttachY", body.getEngineAttachY());
         values.put("imagePath", body.getImagePath());

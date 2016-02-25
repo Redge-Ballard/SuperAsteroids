@@ -59,6 +59,7 @@ public class LevelDao {
      */
     public boolean insert(Level level){
         ContentValues values = new ContentValues();
+        values.put("number", level.getNumber());
         values.put("title", level.getTitle());
         values.put("hint", level.getHint());
         values.put("width", level.getWidth());

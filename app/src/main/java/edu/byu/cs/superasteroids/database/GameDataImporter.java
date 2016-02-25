@@ -46,6 +46,7 @@ public class GameDataImporter implements IGameDataImporter{
         try {
             JSONObject json = new JSONObject(input.toString());
             JSONObject data = json.getJSONObject("asteroidsGame");
+            clearAll();
             loadJsonData(data);
             return true;
         } catch (JSONException e) {
@@ -133,7 +134,9 @@ public class GameDataImporter implements IGameDataImporter{
             newObj.setHeight(j.getInt("height"));
             newObj.setMusicPath(j.getString("music"));
             newObj.setLevelObjects(bgObjects);
+            loadLevelObjects(j,i);
             newObj.setLevelAsteroids(asteroids);
+            loadLevelAsteroids(j,i);
             bgObj.insert(newObj);
         }
     }
