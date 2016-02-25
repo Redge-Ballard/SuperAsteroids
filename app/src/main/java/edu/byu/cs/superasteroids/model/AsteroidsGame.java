@@ -36,8 +36,7 @@ public class AsteroidsGame {
     private static Set<ShipEngine> engines = new HashSet<ShipEngine>();
     private static Set<ShipExtra> extras = new HashSet<ShipExtra>();
 
-    
-    public AsteroidsGame(Context context) {
+    public static void init(Context context){
         dataHelper = new DBOpenHelper(context);
         database = dataHelper.getWritableDatabase();
     }
@@ -71,47 +70,95 @@ public class AsteroidsGame {
         return dataHelper;
     }
 
+    public static void setDataHelper(DBOpenHelper dataHelper) {
+        AsteroidsGame.dataHelper = dataHelper;
+    }
+
     public static SQLiteDatabase getDatabase() {
         return database;
+    }
+
+    public static void setDatabase(SQLiteDatabase database) {
+        AsteroidsGame.database = database;
     }
 
     public static Set<Asteroid> getAsteroids() {
         return asteroids;
     }
 
+    public static void setAsteroids(Set<Asteroid> asteroids) {
+        AsteroidsGame.asteroids = asteroids;
+    }
+
     public static Set<BgObject> getBgObjects() {
         return bgObjects;
+    }
+
+    public static void setBgObjects(Set<BgObject> bgObjects) {
+        AsteroidsGame.bgObjects = bgObjects;
     }
 
     public static Set<LevelAsteroid> getLevelAsteroids() {
         return levelAsteroids;
     }
 
+    public static void setLevelAsteroids(Set<LevelAsteroid> levelAsteroids) {
+        AsteroidsGame.levelAsteroids = levelAsteroids;
+    }
+
     public static Set<LevelBackGroundObject> getLvlBgObjects() {
         return lvlBgObjects;
+    }
+
+    public static void setLvlBgObjects(Set<LevelBackGroundObject> lvlBgObjects) {
+        AsteroidsGame.lvlBgObjects = lvlBgObjects;
     }
 
     public static Set<Level> getLevels() {
         return levels;
     }
 
+    public static void setLevels(Set<Level> levels) {
+        AsteroidsGame.levels = levels;
+    }
+
     public static Set<ShipBody> getBodies() {
         return bodies;
+    }
+
+    public static void setBodies(Set<ShipBody> bodies) {
+        AsteroidsGame.bodies = bodies;
     }
 
     public static Set<ShipCannon> getCannons() {
         return cannons;
     }
 
+    public static void setCannons(Set<ShipCannon> cannons) {
+        AsteroidsGame.cannons = cannons;
+    }
+
     public static Set<ShipCore> getCores() {
         return cores;
+    }
+
+    public static void setCores(Set<ShipCore> cores) {
+        AsteroidsGame.cores = cores;
     }
 
     public static Set<ShipEngine> getEngines() {
         return engines;
     }
 
+    public static void setEngines(Set<ShipEngine> engines) {
+        AsteroidsGame.engines = engines;
+    }
+
     public static Set<ShipExtra> getExtras() {
         return extras;
+    }
+
+    public static void setExtras(Set<ShipExtra> extras) {
+        AsteroidsGame.extras = extras;
     }
 }
