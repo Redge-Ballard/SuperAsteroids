@@ -57,7 +57,6 @@ public class BgObjectDao {
     public boolean insert(BgObject bg){
         ContentValues values = new ContentValues();
         values.put("imagePath", bg.getImagePath());
-
         long id = db.insert("BgObjects", null, values);
         if (id >= 0) {
             bg.setId(((int) id));

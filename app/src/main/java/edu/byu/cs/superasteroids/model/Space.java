@@ -3,7 +3,7 @@ package edu.byu.cs.superasteroids.model;
 /** Space class
  *
  */
-public class Space {
+public class Space extends VisibleObject {
     /** Updates the object's position and stats
      *
      */

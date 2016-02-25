@@ -5,4 +5,10 @@ package edu.byu.cs.superasteroids.database;
  */
 public class Database {
 
+
+
+    public void clearAll(){
+
+    }
+
 }

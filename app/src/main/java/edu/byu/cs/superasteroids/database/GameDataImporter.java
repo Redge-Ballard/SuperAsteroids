@@ -74,6 +74,29 @@ public class GameDataImporter implements IGameDataImporter{
         loadPowerCores(powerCores);
     }
 
+    public void clearAll(){
+        AsteroidDao roidDao = new AsteroidDao(db);
+        roidDao.clearAll();
+        BgObjectDao bgDao = new BgObjectDao(db);
+        bgDao.clearAll();
+        LevelAsteroidDao levelRoidDao = new LevelAsteroidDao(db);
+        levelRoidDao.clearAll();
+        LevelBgObjectDao levelBgDao = new LevelBgObjectDao(db);
+        levelBgDao.clearAll();
+        LevelDao levelDao = new LevelDao(db);
+        levelDao.clearAll();
+        ShipBodyDao bodyDao = new ShipBodyDao(db);
+        bodyDao.clearAll();
+        ShipCannonDao cannonDao = new ShipCannonDao(db);
+        cannonDao.clearAll();
+        ShipCoreDao coreDao = new ShipCoreDao(db);
+        coreDao.clearAll();
+        ShipEngineDao engineDao = new ShipEngineDao(db);
+        engineDao.clearAll();
+        ShipExtraDao extraDao = new ShipExtraDao(db);
+        extraDao.clearAll();
+    }
+
     public void loadAsteroids(JSONArray json) throws JSONException {
         AsteroidDao asteroids = new AsteroidDao(db);
         for (int i = 0; i < json.length(); i++){
