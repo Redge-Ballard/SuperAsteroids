@@ -41,7 +41,7 @@ public class ShipBuildingActivity extends ActivityView implements IShipBuildingV
 
         //TODO: Set this activity's controller to an instance of your ShipBuildingController
         //TODO: Pass the ShipBuildingController's constructor a reference to its IShipBuildingView (this)
-        IShipBuildingController controller = new ShipBuildingController(this);
+        IShipBuildingController controller = new ShipBuildingController(this);;
         setController(controller);
 
 

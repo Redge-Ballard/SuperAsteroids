@@ -15,6 +15,7 @@ import edu.byu.cs.superasteroids.content.ContentManager;
 import edu.byu.cs.superasteroids.game.GameActivity;
 import edu.byu.cs.superasteroids.importer.ImportActivity;
 import edu.byu.cs.superasteroids.model.AsteroidsGame;
+import edu.byu.cs.superasteroids.model.Ship;
 import edu.byu.cs.superasteroids.ship_builder.ShipBuildingActivity;
 
 public class MainActivity extends ActionBarActivityView implements IMainMenuView {
@@ -38,6 +39,7 @@ public class MainActivity extends ActionBarActivityView implements IMainMenuView
         //TODO: Initialize your database
         AsteroidsGame.init(this);
         AsteroidsGame.loadModels();
+        Ship.init();
 
         ContentManager.getInstance().setResources(getResources());
 

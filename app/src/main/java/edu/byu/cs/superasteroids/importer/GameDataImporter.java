@@ -23,6 +23,7 @@ import edu.byu.cs.superasteroids.database.ShipEngineDao;
 import edu.byu.cs.superasteroids.database.ShipExtraDao;
 import edu.byu.cs.superasteroids.importer.IGameDataImporter;
 import edu.byu.cs.superasteroids.model.Asteroid;
+import edu.byu.cs.superasteroids.model.AsteroidsGame;
 import edu.byu.cs.superasteroids.model.BgObject;
 import edu.byu.cs.superasteroids.model.Level;
 import edu.byu.cs.superasteroids.model.LevelAsteroid;
@@ -84,6 +85,7 @@ public class GameDataImporter implements IGameDataImporter{
         loadEngines(engines);
         JSONArray powerCores = json.getJSONArray("powerCores");
         loadPowerCores(powerCores);
+        AsteroidsGame.loadModels();
     }
 
     public void clearAll(){

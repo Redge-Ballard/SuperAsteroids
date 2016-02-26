@@ -2,6 +2,7 @@ package edu.byu.cs.superasteroids.model;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,6 +26,7 @@ public class AsteroidsGame {
 
     private static DBOpenHelper dataHelper;
     private static SQLiteDatabase database;
+
     private static Set<Asteroid> asteroids = new HashSet<Asteroid>();
     private static Set<BgObject> bgObjects = new HashSet<BgObject>();
     private static Set<LevelAsteroid>  levelAsteroids = new HashSet<LevelAsteroid>();
@@ -82,80 +84,90 @@ public class AsteroidsGame {
         AsteroidsGame.database = database;
     }
 
-    public static Set<Asteroid> getAsteroids() {
-        return asteroids;
+    public static ArrayList<Asteroid> getAsteroids() {
+        ArrayList<Asteroid> list = new ArrayList<Asteroid>(asteroids);
+        return list;
     }
 
     public static void setAsteroids(Set<Asteroid> asteroids) {
         AsteroidsGame.asteroids = asteroids;
     }
 
-    public static Set<BgObject> getBgObjects() {
-        return bgObjects;
+    public static ArrayList<BgObject> getBgObjects() {
+        ArrayList<BgObject> list = new ArrayList<BgObject>(bgObjects);
+        return list;
     }
 
     public static void setBgObjects(Set<BgObject> bgObjects) {
         AsteroidsGame.bgObjects = bgObjects;
     }
 
-    public static Set<LevelAsteroid> getLevelAsteroids() {
-        return levelAsteroids;
+    public static ArrayList<LevelAsteroid> getLevelAsteroids() {
+        ArrayList<LevelAsteroid> list = new ArrayList<LevelAsteroid>(levelAsteroids);
+        return list;
     }
 
     public static void setLevelAsteroids(Set<LevelAsteroid> levelAsteroids) {
         AsteroidsGame.levelAsteroids = levelAsteroids;
     }
 
-    public static Set<LevelBackGroundObject> getLvlBgObjects() {
-        return lvlBgObjects;
+    public static ArrayList<LevelBackGroundObject> getLvlBgObjects() {
+        ArrayList<LevelBackGroundObject> list = new ArrayList<LevelBackGroundObject>(lvlBgObjects);
+        return list;
     }
 
     public static void setLvlBgObjects(Set<LevelBackGroundObject> lvlBgObjects) {
         AsteroidsGame.lvlBgObjects = lvlBgObjects;
     }
 
-    public static Set<Level> getLevels() {
-        return levels;
+    public static ArrayList<Level> getLevels() {
+        ArrayList<Level> list = new ArrayList<Level>(levels);
+        return list;
     }
 
     public static void setLevels(Set<Level> levels) {
         AsteroidsGame.levels = levels;
     }
 
-    public static Set<ShipBody> getBodies() {
-        return bodies;
+    public static ArrayList<ShipBody> getBodies() {
+        ArrayList<ShipBody> list = new ArrayList<ShipBody>(bodies);
+        return list;
     }
 
     public static void setBodies(Set<ShipBody> bodies) {
         AsteroidsGame.bodies = bodies;
     }
 
-    public static Set<ShipCannon> getCannons() {
-        return cannons;
+    public static ArrayList<ShipCannon> getCannons() {
+        ArrayList<ShipCannon> list = new ArrayList<ShipCannon>(cannons);
+        return list;
     }
 
     public static void setCannons(Set<ShipCannon> cannons) {
         AsteroidsGame.cannons = cannons;
     }
 
-    public static Set<ShipCore> getCores() {
-        return cores;
+    public static ArrayList<ShipCore> getCores() {
+        ArrayList<ShipCore> list = new ArrayList<ShipCore>(cores);
+        return list;
     }
 
     public static void setCores(Set<ShipCore> cores) {
         AsteroidsGame.cores = cores;
     }
 
-    public static Set<ShipEngine> getEngines() {
-        return engines;
+    public static ArrayList<ShipEngine> getEngines() {
+        ArrayList<ShipEngine> list = new ArrayList<ShipEngine>(engines);
+        return list;
     }
 
     public static void setEngines(Set<ShipEngine> engines) {
         AsteroidsGame.engines = engines;
     }
 
-    public static Set<ShipExtra> getExtras() {
-        return extras;
+    public static ArrayList<ShipExtra> getExtras() {
+        ArrayList<ShipExtra> list = new ArrayList<ShipExtra>(extras);
+        return list;
     }
 
     public static void setExtras(Set<ShipExtra> extras) {
