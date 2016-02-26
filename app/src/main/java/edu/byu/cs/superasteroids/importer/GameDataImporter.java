@@ -202,7 +202,7 @@ public class GameDataImporter implements IGameDataImporter{
             int extraY = coordinatesFromJson(j.getString("extraAttach"),"y");
             ShipBody newObj = new ShipBody();
             newObj.setCannonAttachX(cannonX);
-            newObj.setEngineAttachY(cannonY);
+            newObj.setCannonAttachY(cannonY);
             newObj.setEngineAttachX(engineX);
             newObj.setEngineAttachY(engineY);
             newObj.setExtraAttachX(extraX);

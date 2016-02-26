@@ -63,7 +63,7 @@ public class Ship extends MovingObject {
     }
 
     public static boolean isComplete() {
-        if (bodySet == true && cannonSet == true && coreSet == true && engineSet == true && extraSet == true){
+        if (bodySet && cannonSet && coreSet && engineSet && extraSet){
             return true;
         }
         else {

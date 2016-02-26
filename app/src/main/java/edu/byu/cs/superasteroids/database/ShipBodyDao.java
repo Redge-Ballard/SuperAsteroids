@@ -25,7 +25,7 @@ public class ShipBodyDao {
      */
     public Set<ShipBody> getAll(){
         final String SQL = "select id, cannonAttachX, cannonAttachY, engineAttachX, engineAttachY," +
-                "imagePath, imageWidth, imageHeight " +
+                "extraAttachX, extraAttachY, imagePath, imageWidth, imageHeight " +
                 "from ShipBodies";
 
         Set<ShipBody> result = new HashSet<>();
@@ -41,9 +41,11 @@ public class ShipBodyDao {
                 body.setCannonAttachY(cursor.getInt(2));
                 body.setEngineAttachX(cursor.getInt(3));
                 body.setEngineAttachY(cursor.getInt(4));
-                body.setImagePath(cursor.getString(5));
-                body.setImageWidth(cursor.getInt(6));
-                body.setImageHeight(cursor.getInt(7));
+                body.setExtraAttachX(cursor.getInt(5));
+                body.setExtraAttachY(cursor.getInt(6));
+                body.setImagePath(cursor.getString(7));
+                body.setImageWidth(cursor.getInt(8));
+                body.setImageHeight(cursor.getInt(9));
 
                 result.add(body);
 
@@ -66,6 +68,8 @@ public class ShipBodyDao {
         values.put("cannonAttachY", body.getCannonAttachY());
         values.put("engineAttachX", body.getEngineAttachX());
         values.put("engineAttachY", body.getEngineAttachY());
+        values.put("extraAttachX", body.getExtraAttachX());
+        values.put("extraAttachY", body.getExtraAttachY());
         values.put("imagePath", body.getImagePath());
         values.put("imageWidth", body.getImageWidth());
         values.put("imageHeight", body.getImageHeight());

@@ -70,6 +70,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             "cannonAttachY integer not null," +
             "engineAttachX integer not null," +
             "engineAttachY integer not null," +
+            "extraAttachX integer not null," +
+            "extraAttachY integer not null," +
             "imagePath varchar(255) not null," +
             "imageWidth integer not null," +
             "imageHeight integer not null" +
