@@ -64,4 +64,8 @@ public class LevelBackGroundObject extends DataObject {
     public void setLevelId(int levelId) {
         this.levelId = levelId;
     }
+
+    public String getImagePath() {
+        return AsteroidsGame.getLvlBgObjects().get(BgObjectId).getImagePath();
+    }
 }

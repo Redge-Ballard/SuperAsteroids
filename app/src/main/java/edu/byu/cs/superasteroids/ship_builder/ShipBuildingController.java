@@ -114,7 +114,16 @@ public class ShipBuildingController implements IShipBuildingController{
 
     @Override
     public void unloadContent(ContentManager content) {
-
+        content.unloadImage(bodyIds.get(0));
+        content.unloadImage(bodyIds.get(1));
+        content.unloadImage(cannonIds.get(0));
+        content.unloadImage(cannonIds.get(1));
+        content.unloadImage(engineIds.get(0));
+        content.unloadImage(engineIds.get(1));
+        content.unloadImage(coreIds.get(0));
+        content.unloadImage(coreIds.get(1));
+        content.unloadImage(extraIds.get(0));
+        content.unloadImage(extraIds.get(1));
     }
 
     @Override

@@ -1,5 +1,8 @@
 package edu.byu.cs.superasteroids.model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by Azulius on 2/18/16.
  */
@@ -11,8 +14,8 @@ public class Level extends DataObject {
     private int width;
     private int height;
     private String musicPath;
-    private LevelBackGroundObject[] levelObjects;
-    private LevelAsteroid[] levelAsteroids;
+    private ArrayList<LevelBackGroundObject> levelObjects = new ArrayList<>();
+    private ArrayList<LevelAsteroid> levelAsteroids = new ArrayList<>();
 
     public int getNumber() {
         return number;
@@ -62,19 +65,19 @@ public class Level extends DataObject {
         this.musicPath = musicPath;
     }
 
-    public LevelBackGroundObject[] getLevelObjects() {
+    public ArrayList<LevelBackGroundObject> getLevelObjects() {
         return levelObjects;
     }
 
-    public void setLevelObjects(LevelBackGroundObject[] levelObjects) {
+    public void setLevelObjects(ArrayList<LevelBackGroundObject> levelObjects) {
         this.levelObjects = levelObjects;
     }
 
-    public LevelAsteroid[] getLevelAsteroids() {
+    public ArrayList<LevelAsteroid> getLevelAsteroids() {
         return levelAsteroids;
     }
 
-    public void setLevelAsteroids(LevelAsteroid[] levelAsteroids) {
+    public void setLevelAsteroids(ArrayList<LevelAsteroid> levelAsteroids) {
         this.levelAsteroids = levelAsteroids;
     }
 }
