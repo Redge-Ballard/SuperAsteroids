@@ -1,9 +1,12 @@
 package edu.byu.cs.superasteroids.ship_builder;
 
+import android.content.Intent;
+
 import java.util.ArrayList;
 import edu.byu.cs.superasteroids.base.IView;
 import edu.byu.cs.superasteroids.content.ContentManager;
 import edu.byu.cs.superasteroids.drawing.DrawingHelper;
+import edu.byu.cs.superasteroids.game.GameActivity;
 import edu.byu.cs.superasteroids.model.Asteroid;
 import edu.byu.cs.superasteroids.model.AsteroidsGame;
 import edu.byu.cs.superasteroids.model.Ship;
@@ -149,8 +152,6 @@ public class ShipBuildingController implements IShipBuildingController{
             DrawingHelper.drawImage(engineIds.get(pickedEngine), centerX + xScaled, centerY + yScaled, 0, scale, scale, 255);
         }
         if (pickedExtra >= 0) {
-            ShipBody bodee = Ship.getBody();
-            ShipExtra extree = Ship.getExtra();
             int xPoint = (Ship.getBody().getExtraAttachX()-Ship.getBody().getImageWidth()/2)+(Ship.getExtra().getImageWidth()/2-Ship.getExtra().getAttachX());
             int xScaled = (int)(xPoint * scale);
             int yPoint = (Ship.getBody().getExtraAttachY()-Ship.getBody().getImageHeight()/2)+(Ship.getExtra().getImageHeight()/2-Ship.getExtra().getAttachY());
@@ -247,7 +248,7 @@ public class ShipBuildingController implements IShipBuildingController{
 
     @Override
     public void onStartGamePressed() {
-
+        View.startGame();
     }
 
     @Override

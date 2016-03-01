@@ -18,6 +18,7 @@ public class GameActivity extends ActivityView {
 
 	private GameView gameView;
 	private IGameDelegate gameDelegate;
+    private GameController controller;
 
     @Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,8 @@ public class GameActivity extends ActivityView {
         frame.addView(gameView);
 
         //TODO: Set the gameDelegate to an instance of your game controller.
-        //gameDelegate = Instance of your game controller
+        controller =  new GameController();
+        gameDelegate = controller;
 
         
         //Set the view's game delegate and have it load content

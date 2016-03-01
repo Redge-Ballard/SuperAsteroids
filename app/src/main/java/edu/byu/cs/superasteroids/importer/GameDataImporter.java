@@ -8,6 +8,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import edu.byu.cs.superasteroids.database.AsteroidDao;
@@ -137,8 +138,8 @@ public class GameDataImporter implements IGameDataImporter{
         LevelDao bgObj = new LevelDao(db);
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
-            LevelBackGroundObject[] bgObjects = loadLevelObjects(j,j.getInt("number"));
-            LevelAsteroid[] asteroids = loadLevelAsteroids(j,j.getInt("number"));
+            ArrayList<LevelBackGroundObject> bgObjects = loadLevelObjects(j, j.getInt("number"));
+            ArrayList<LevelAsteroid> asteroids = loadLevelAsteroids(j,j.getInt("number"));
             Level newObj = new Level();
             newObj.setNumber(j.getInt("number"));
             newObj.setTitle(j.getString("title"));
@@ -154,10 +155,10 @@ public class GameDataImporter implements IGameDataImporter{
         }
     }
 
-    public LevelBackGroundObject[] loadLevelObjects(JSONObject object, int level) throws JSONException {
+    public ArrayList<LevelBackGroundObject> loadLevelObjects(JSONObject object, int level) throws JSONException {
         LevelBgObjectDao bgObjects = new LevelBgObjectDao(db);
         JSONArray json = object.getJSONArray("levelObjects");
-        LevelBackGroundObject[] bgArray = new LevelBackGroundObject[json.length()];
+        ArrayList<LevelBackGroundObject> bgArray = new ArrayList<>();
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
             int posX = coordinatesFromJson(j.getString("position" ), "x" );
@@ -169,15 +170,15 @@ public class GameDataImporter implements IGameDataImporter{
             newObj.setScale(j.getDouble("scale"));
             newObj.setLevelId(level);
             bgObjects.insert(newObj);
-            bgArray[i] = newObj;
+            bgArray.add(newObj);
         }
         return bgArray;
     }
 
-    public LevelAsteroid[] loadLevelAsteroids(JSONObject object, int level) throws JSONException {
+    public ArrayList<LevelAsteroid> loadLevelAsteroids(JSONObject object, int level) throws JSONException {
         LevelAsteroidDao asteroids = new LevelAsteroidDao(db);
         JSONArray json = object.getJSONArray("levelAsteroids");
-        LevelAsteroid[] asteroidArray = new LevelAsteroid[json.length()];
+        ArrayList<LevelAsteroid> asteroidArray = new ArrayList<>();
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
             LevelAsteroid newObj = new LevelAsteroid();
@@ -185,7 +186,7 @@ public class GameDataImporter implements IGameDataImporter{
             newObj.setAsteroidType(j.getInt("asteroidId"));
             newObj.setLevelId(level);
             asteroids.insert(newObj);
-            asteroidArray[i] = newObj;
+            asteroidArray.add(newObj);
         }
         return asteroidArray;
     }

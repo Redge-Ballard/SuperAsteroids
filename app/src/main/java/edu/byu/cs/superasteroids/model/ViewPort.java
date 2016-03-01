@@ -1,5 +1,7 @@
 package edu.byu.cs.superasteroids.model;
 
+import android.graphics.Rect;
+
 import edu.byu.cs.superasteroids.drawing.DrawingHelper;
 
 /**
@@ -11,4 +13,7 @@ public class ViewPort {
     private int height = DrawingHelper.getGameViewHeight();
     private int xPos;
     private int yPos;
+    private Rect bounding = new Rect();
+
+
 }
