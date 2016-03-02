@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,11 +24,11 @@ public class LevelDao {
      *
      * @return Array of all Level objects in the DB
      */
-    public Set<Level> getAll(){
+    public ArrayList<Level> getAll(){
         final String SQL = "select id, title, hint, width, height, musicPath " +
                 "from Levels";
 
-        Set<Level> result = new HashSet<>();
+        ArrayList<Level> result = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(SQL, new String[]{});
         try {
@@ -40,6 +41,7 @@ public class LevelDao {
                 level.setHint(cursor.getString(2));
                 level.setWidth(cursor.getInt(3));
                 level.setHeight(cursor.getInt(4));
+                level.setBounds(cursor.getInt(3),cursor.getInt(4));
                 level.setMusicPath(cursor.getString(5));
 
                 result.add(level);

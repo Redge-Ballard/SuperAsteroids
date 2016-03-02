@@ -134,29 +134,45 @@ public class ShipBuildingController implements IShipBuildingController{
         int centerX = DrawingHelper.getGameViewWidth()/2;
         int centerY = DrawingHelper.getGameViewHeight()/2;
         float scale = 0.25f;
+        drawBody(centerX, centerY, scale);
+        drawCannon(centerX, centerY, scale);
+        drawEngine(centerX, centerY, scale);
+        drawExtra(centerX, centerY, scale);
+    }
+
+    public void drawBody(int x, int y, float scale){
         if (pickedBody >= 0) {
-            DrawingHelper.drawImage(bodyIds.get(pickedBody), centerX, centerY, 0, scale, scale, 255);
+            DrawingHelper.drawImage(bodyIds.get(pickedBody), x, y, 0, scale, scale, 255);
         }
+    }
+
+    public void drawCannon(int x, int y, float scale){
         if (pickedCannon >= 0) {
             int xPoint = (Ship.getBody().getCannonAttachX()-Ship.getBody().getImageWidth()/2)+(Ship.getCannon().getImageWidth()/2-Ship.getCannon().getAttachX());
             int xScaled = (int)(xPoint * scale);
             int yPoint = (Ship.getBody().getCannonAttachY()-Ship.getBody().getImageHeight()/2)+(Ship.getCannon().getImageHeight()/2-Ship.getCannon().getAttachY());
             int yScaled = (int)(yPoint * scale);
-            DrawingHelper.drawImage(cannonIds.get(pickedCannon), centerX + xScaled, centerY + yScaled, 0, scale, scale, 255);
+            DrawingHelper.drawImage(cannonIds.get(pickedCannon), x + xScaled, y + yScaled, 0, scale, scale, 255);
         }
+    }
+
+    public void drawEngine(int x, int y, float scale){
         if (pickedEngine >= 0) {
             int xPoint = (Ship.getBody().getEngineAttachX()-Ship.getBody().getImageWidth()/2)+(Ship.getEngine().getImageWidth()/2-Ship.getEngine().getAttachX());
             int xScaled = (int)(xPoint * scale);
             int yPoint = (Ship.getBody().getEngineAttachY()-Ship.getBody().getImageHeight()/2)+(Ship.getEngine().getImageHeight()/2-Ship.getEngine().getAttachY());
             int yScaled = (int)(yPoint * scale);
-            DrawingHelper.drawImage(engineIds.get(pickedEngine), centerX + xScaled, centerY + yScaled, 0, scale, scale, 255);
+            DrawingHelper.drawImage(engineIds.get(pickedEngine), x + xScaled, y + yScaled, 0, scale, scale, 255);
         }
+    }
+
+    public void drawExtra(int x, int y, float scale){
         if (pickedExtra >= 0) {
             int xPoint = (Ship.getBody().getExtraAttachX()-Ship.getBody().getImageWidth()/2)+(Ship.getExtra().getImageWidth()/2-Ship.getExtra().getAttachX());
             int xScaled = (int)(xPoint * scale);
             int yPoint = (Ship.getBody().getExtraAttachY()-Ship.getBody().getImageHeight()/2)+(Ship.getExtra().getImageHeight()/2-Ship.getExtra().getAttachY());
             int yScaled = (int)(yPoint * scale);
-            DrawingHelper.drawImage(extraIds.get(pickedExtra), centerX + xScaled, centerY + yScaled, 0, scale, scale, 255);
+            DrawingHelper.drawImage(extraIds.get(pickedExtra), x + xScaled, y + yScaled, 0, scale, scale, 255);
         }
     }
 

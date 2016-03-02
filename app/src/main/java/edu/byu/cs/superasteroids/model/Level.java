@@ -1,5 +1,7 @@
 package edu.byu.cs.superasteroids.model;
 
+import android.graphics.Rect;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -13,9 +15,18 @@ public class Level extends DataObject {
     private String hint;
     private int width;
     private int height;
+    private Rect bounds = new Rect();
     private String musicPath;
     private ArrayList<LevelBackGroundObject> levelObjects = new ArrayList<>();
     private ArrayList<LevelAsteroid> levelAsteroids = new ArrayList<>();
+
+    public Rect getBounds() {
+        return bounds;
+    }
+
+    public void setBounds(int width, int height) {
+        bounds.set(0,0,width,height);
+    }
 
     public int getNumber() {
         return number;

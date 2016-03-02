@@ -135,7 +135,7 @@ public class GameDataImporter implements IGameDataImporter{
     }
 
     public void loadLevels(JSONArray json) throws JSONException {
-        LevelDao bgObj = new LevelDao(db);
+        LevelDao levelObj = new LevelDao(db);
         for (int i = 0; i < json.length(); i++){
             JSONObject j = json.getJSONObject(i);
             ArrayList<LevelBackGroundObject> bgObjects = loadLevelObjects(j, j.getInt("number"));
@@ -151,7 +151,7 @@ public class GameDataImporter implements IGameDataImporter{
             loadLevelObjects(j,i);
             newObj.setLevelAsteroids(asteroids);
             loadLevelAsteroids(j,i);
-            bgObj.insert(newObj);
+            levelObj.insert(newObj);
         }
     }
 

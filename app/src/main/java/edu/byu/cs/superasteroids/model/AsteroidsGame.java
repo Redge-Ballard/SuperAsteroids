@@ -31,7 +31,7 @@ public class AsteroidsGame {
     private static Set<BgObject> bgObjects = new HashSet<BgObject>();
     private static Set<LevelAsteroid>  levelAsteroids = new HashSet<LevelAsteroid>();
     private static Set<LevelBackGroundObject> lvlBgObjects = new HashSet<LevelBackGroundObject>();
-    private static Set<Level> levels = new HashSet<Level>();
+    private static ArrayList<Level> levels = new ArrayList<>();
     private static Set<ShipBody> bodies = new HashSet<ShipBody>();
     private static Set<ShipCannon> cannons = new HashSet<ShipCannon>();
     private static Set<ShipCore> cores = new HashSet<ShipCore>();
@@ -125,7 +125,7 @@ public class AsteroidsGame {
         return list;
     }
 
-    public static void setLevels(Set<Level> levels) {
+    public static void setLevels(ArrayList<Level> levels) {
         AsteroidsGame.levels = levels;
     }
 
