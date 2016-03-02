@@ -39,7 +39,6 @@ public class MainActivity extends ActionBarActivityView implements IMainMenuView
         //TODO: Initialize your database
         AsteroidsGame.init(this);
         AsteroidsGame.loadModels();
-        Ship.init();
 
         ContentManager.getInstance().setResources(getResources());
 

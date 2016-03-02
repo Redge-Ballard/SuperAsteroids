@@ -24,7 +24,6 @@ public class GameController implements IGameDelegate {
 
     private Map<String, Integer> partsId = new HashMap<String, Integer>();
     private Level currentLevel = new Level();
-    private ViewPort viewPort = new ViewPort();
     private ArrayList<LevelAsteroid> currentRoids = new ArrayList<>();
     private ArrayList<LevelBackGroundObject> currentBgObjects = new ArrayList<>();
     private ArrayList<Integer> roidIds = new ArrayList<>();
@@ -34,7 +33,7 @@ public class GameController implements IGameDelegate {
     @Override
     public void update(double elapsedTime) {
         Ship.update();
-        viewPort.update();
+        ViewPort.update();
     }
 
     @Override
@@ -68,7 +67,7 @@ public class GameController implements IGameDelegate {
     @Override
     public void draw() {
         Ship.draw();
-        viewPort.draw();
+        ViewPort.draw();
     }
 
     public void setUpLevel(){
